@@ -1,5 +1,7 @@
 {
   "name": "sehaj-paath-tracker",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sehaj Paath</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="home-card">
+        <img src="/assets/sggs.jpg" alt="" />
+        <ion-card-header>
+            <ion-card-subtitle style="text-align: center;">Shri Guru Granth Sahib Ji</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <p class="ion-text-end">
+                Ang {{ currentAngs }} / 1430
+            </p>
+            <ion-progress-bar color="primary" value="{{currentProgress}}"></ion-progress-bar>
+
+            <ion-button
+                id="add-progress-btn" color="primary" size="small" class="ion-margin-top" (click)="addProgress()"
+                [ngClass]="{'ion-hide': isProgressBtnHidden}"
+            >
+                <ion-icon slot="start" name="add"></ion-icon>
+                Progress
+            </ion-button>
+
+            <ion-button
+                (click)="goToHome()"
+                [ngClass]="{'ion-hide': isHomeBtnHidden}"
+            >
+                Home
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card class="ion-padding-horizontal" [ngClass]="{'ion-hide': isProgressFormHidden}">
+        <ion-card-header>
+            <ion-card-subtitle style="text-align: center;">Enter Current Ang</ion-card-subtitle>
+        </ion-card-header>
+        <ion-input type="number" value="333" min="1" max="1430" [(ngModel)]="angs"></ion-input>
+
+        <ion-button
+            id="add-progress-btn"
+            color="success"
+            size="small"
+            class="ion-margin-top"
+            (click)="saveCurrentAngs()"
+        >
+            Save
+        </ion-button>
+
+        <ion-button
+            id="add-progress-btn"
+            color="danger"
+            size="small"
+            class="ion-margin-top"
+            (click)="hideProgressForm()"
+        >
+            Cancel
+        </ion-button>
+
+        <ion-button
+            id="add-progress-btn"
+            color="danger"
+            size="small"
+            class="ion-margin-top"
+            (click)="markAsSampooran()"
+        >
+            Sampooran
+        </ion-button>
+    </ion-card>
+</ion-content>
